@@ -5,12 +5,12 @@ for t in range(T):
      N = int(input())
      arr = list(map(int, input().split()))
 
-     max_i = 0
+     result =[]
      for i in range(N-2):
+         num_list= []
          for j in range(i-2, i+3):
              if arr[i] > arr[j]:
-                 result = arr[i] - arr[j]
-                 if max_i < result:
-                     max_i = result
+                 num_list.append(arr[i] - arr[j])
+                 result.append(max(num_list))
 
-     print(max_i)
+     print(result)
