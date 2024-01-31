@@ -32,5 +32,5 @@ for tc in range(T):
         if word_cnt == K:
             cnt += 1
 
-    print(cnt)
+    print(f'#{tc+1} {cnt}')
 
