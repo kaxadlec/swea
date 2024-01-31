@@ -7,6 +7,7 @@ for t in range(T):
     my_pos = 0  # 초기 위치
     cnt = 0
 
+    print(K, N, M)
     for i in charge_bus_stop:
         all_bus_stop[i] = 1 # 충전기 있는 버스정류장 인덱스 값은 1
 
@@ -16,8 +17,6 @@ for t in range(T):
         print('my_pos', my_pos)
         pos_max = my_pos + K
         pos_min = my_pos
-        print(pos_max, 'pos_max')
-        print(pos_min, 'pos_min')
         if pos_max >= N:
             break
         none_cnt = 0
@@ -26,11 +25,11 @@ for t in range(T):
                 my_pos = pos
                 cnt = cnt + 1
                 break
-            else:
+            elif all_bus_stop[pos] == 0:
                 none_cnt = none_cnt + 1
 
-            if none_cnt >= K:
-                break
+            if none_cnt == K:
+                print(none_cnt)
 
 
 
