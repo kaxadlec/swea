@@ -1,16 +1,17 @@
+import copy
 T = 10
 start_point_arr = []
 
 
-def ladder(arr):
+def ladder(a):
     for j in range(100):
-        if arr[0][j] == 1:
+        if a[0][j] == 1:
             start_point_arr.append(j)
+    arr = copy.deepcopy(a)
     for j in start_point_arr:
         i = 0
         x = j
         while i < 99:
-            print('i j', i, j)
             for di, dj in [[0, 1], [0, -1], [1, 0]]:  # 사다리타기 이동 우선순위
                 ni, nj = i + di, j + dj  # 이동하기
                 if 0 <= ni < 100 and 0 <= nj < 100:
