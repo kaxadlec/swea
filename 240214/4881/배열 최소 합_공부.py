@@ -1,9 +1,12 @@
 def permutation(level, current_sum):
     global min_sum_path
+    print('current_sum', current_sum)
     if current_sum > min_sum_path:  # 과정 중 배열 합이 최소합보다 크면 중단
         return
     if level == N:  # N개의 행 다 하나씩 숫자 선택 완료
         min_sum_path = current_sum
+        print('path', path)
+        print()
         return
 
     for j in range(N):
@@ -11,6 +14,7 @@ def permutation(level, current_sum):
             continue
         path[level] = arr[level][j]     # arr 배열의 행마다 숫자 선택
         used[j] = 1
+        print('arr[level][j]', arr[level][j])
 
         permutation(level+1, current_sum + arr[level][j])
         used[j] = 0
