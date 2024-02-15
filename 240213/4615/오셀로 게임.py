@@ -1,26 +1,30 @@
 def othello(i, j, bw, board):
-    di, dj = [-1, 1, 0, 0, -1, -1, 1, 1], [0, 0, -1, 1, -1, 1, 1, -1]   # 상하좌우, 대각선 4방향
     stack = []
-    while stack:
-        for k in range(8):
-            ni = i + di[k]
-            nj = j + dj[k]
-            if bw == 1 and i <= ni < (N + 1) and j <= nj < (N + 1)
-                if board[ni][nj] == 2:
-                    ni = ni + di[k]
-                    nj = nj + dj[k]
+    di, dj = [-1, 1, 0, 0, -1, -1, 1, 1], [0, 0, -1, 1, -1, 1, 1, -1]   # 상하좌우, 대각선 4방향
+    for k in range(8):
+        ni = i + di[k]
+        nj = j + dj[k]
+        stack.append((ni, nj))
+        while stack:
+            si, sj = stack.pop()
+            print('si sj', si, sj)
+            if bw == 1 and i <= si < (N + 1) and j <= sj < (N + 1) and board[si][sj] != 0:
+                if board[si][sj] == 2:
+                    ni = si + di[k]
+                    nj = sj + dj[k]
                     stack.append((ni, nj))
+
                 elif board[ni][nj] == 1:
-                    a, b = stack.pop()
-
-
-
-
-            if bw == 2 and i <= ni < (N + 1) and j <= nj < (N + 1) and board[ni][nj] == 1:
-                ni = ni + di[k]
-                nj = nj + dj[k]
-
-                print('i, j', i, j)
+                    asd = stack.pop()
+                    print('-------', asd)
+            else:
+                print("해당사항 없음")
+                break
+            # if bw == 2 and i <= ni < (N + 1) and j <= nj < (N + 1) and board[ni][nj] == 1:
+            #     ni = ni + di[k]
+            #     nj = nj + dj[k]
+            #
+            #     print('i, j', i, j)
 
 
 
@@ -40,10 +44,13 @@ for tc in range(T):
         j, i, bw = (input().split())  # bw 1: 흑, 2: 백
         i, j, bw = int(i), int(j), int(bw)
         board[i][j] = bw
+
+
+        print('i j bw', i, j, bw)
         othello(i, j, bw, board)
 
         # print(board)
-        print('i j bw', i, j, bw)
+
         for idx in board:
             result = ''.join(str(i) for i in idx)
             print(result)
