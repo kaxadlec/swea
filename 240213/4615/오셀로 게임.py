@@ -1,31 +1,28 @@
 def othello(i, j, bw, board):
     di, dj = [-1, 1, 0, 0, -1, -1, 1, 1], [0, 0, -1, 1, -1, 1, 1, -1]   # 상하좌우, 대각선 4방향
     stack = []
-    for k in range(8):
-        ni = i + di[k]
-        nj = j + dj[k]
-        while bw == 1 and i <= ni < (N + 1) and j <= nj < (N + 1) and board[ni][nj] == 2:
-            stack.append((ni, nj))
-            ni = ni + di[k]
-            nj = nj + dj[k]
+    while stack:
+        for k in range(8):
+            ni = i + di[k]
+            nj = j + dj[k]
+            if bw == 1 and i <= ni < (N + 1) and j <= nj < (N + 1)
+                if board[ni][nj] == 2:
+                    ni = ni + di[k]
+                    nj = nj + dj[k]
+                    stack.append((ni, nj))
+                elif board[ni][nj] == 1:
+                    a, b = stack.pop()
 
 
-            print('stack', stack)
 
-        while bw == 2 and i <= ni < (N + 1) and j <= nj < (N + 1) and board[ni][nj] == 1:
-            ni = ni + di[k]
-            nj = nj + dj[k]
-            stack.append((ni, nj))
-            print('i, j', i, j)
-            print('ni, nj', ni, nj)
-            print('stack', stack)
 
-        if stack and bw == 1:
-            ik, jk = stack.pop()
-            board[ik][jk] = 1
-        if stack and bw == 2:
-            ik, jk = stack.pop()
-            board[ik][jk] = 2
+            if bw == 2 and i <= ni < (N + 1) and j <= nj < (N + 1) and board[ni][nj] == 1:
+                ni = ni + di[k]
+                nj = nj + dj[k]
+
+                print('i, j', i, j)
+
+
 
 
 T = int(input())
