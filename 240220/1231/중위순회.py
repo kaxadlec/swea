@@ -1,4 +1,5 @@
 def inorder_traversal(root):
+    print('sssssss', root)
     if root:
         inorder_traversal(left_child[root])
         print(node_value[root], end='')
@@ -35,6 +36,7 @@ for tc in range(T):
     root = c
     
     print(f'#{tc+1}', end=' ')
+    print(left_child)
     inorder_traversal(root)
     print()
 
