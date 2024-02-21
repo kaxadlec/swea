@@ -1,7 +1,11 @@
+# 1231. 중위순회
 def inorder(node):
+    # 왼쪽 자식노드
     if len(tree[node]) >= 2:
         inorder(tree[node][1])
+    # 현재노드
     print(tree[node][0], end='')
+    # 오른쪽 자식노드
     if len(tree[node]) >= 3:
         inorder(tree[node][2])
 
