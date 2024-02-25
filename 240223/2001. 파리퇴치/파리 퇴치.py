@@ -9,7 +9,7 @@ for tc in range(T):
             result = 0
             for r in range(M):
                 for c in range(M):
-                    if (i+r) < N and j+c < N:
+                    if i+r < N and j+c < N:
                         result = result + board[i+r][j+c]
             if result > max_result:
                 max_result = result
